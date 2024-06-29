@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: holiday-camp
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/holiday_camp
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+logging:
+  level:
+    org.springframework.jdbc.core: TRACE
