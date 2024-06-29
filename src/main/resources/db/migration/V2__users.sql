@@ -25,5 +25,56 @@ BEGIN
 END;
 $$;
 
+CREATE OR REPLACE PROCEDURE create_user(
+    IN new_user_name VARCHAR,
+    IN new_user_phone_number VARCHAR,
+    IN new_user_location_name VARCHAR,
+    IN new_user_password_hash VARCHAR,
+    IN new_user_role_names VARCHAR[],
+    OUT new_user_id BIGINT
+)
+    LANGUAGE plpgsql
+AS
+$$
+DECLARE
+    new_user_location_id BIGINT;
+    new_user_role_id     BIGINT;
+    new_user_role_name   VARCHAR;
+BEGIN
+    new_user_location_id := get_location_id(new_user_location_name);
+    IF new_user_location_id IS NULL THEN
+        INSERT INTO locations (name) VALUES (new_user_location_name) RETURNING id INTO new_user_location_id;
+        RAISE NOTICE 'Создан новый населенный пункт: % (ID: %)', new_user_location_name, new_user_location_id;
+    END IF;
+
+    INSERT INTO users (name, phone_number, location_id)
+    VALUES (new_user_name, new_user_phone_number, new_user_location_id)
+    RETURNING id INTO new_user_id;
+    RAISE NOTICE 'Создан новый пользователь. ID: %', new_user_id;
+
+    INSERT INTO user_details (user_id, username, password_hash)
+    VALUES (new_user_id, new_user_phone_number, new_user_password_hash);
+    RAISE NOTICE 'В user_details добавлена информация о новом пользователе';
+
+    FOREACH new_user_role_name IN ARRAY new_user_role_names
+        LOOP
+            new_user_role_id := get_role_id(new_user_role_name);
+            IF new_user_role_id IS NULL THEN
+                RAISE EXCEPTION 'Роль с названием % не существует', new_user_role_name;
+            END IF;
+
+            INSERT INTO users_roles (user_id, role_id) VALUES (new_user_id, role_id);
+            RAISE NOTICE 'Роль % (%) добавлена для нового пользователя', new_user_role_name, new_user_role_id;
+        END LOOP;
+    RAISE NOTICE 'Все роли успешно добавлены для нового пользователя';
+
+EXCEPTION
+    WHEN OTHERS THEN
+        RAISE NOTICE 'При создании нового пользователя произошла ошибка: %', SQLERRM;
+        ROLLBACK;
+        RAISE;
+END;
+$$;
+
 INSERT INTO users (name, phone_number, location_id)
 VALUES ('Михаил', '+7-996-380-03-61', get_location_id('Новосибирск'));
