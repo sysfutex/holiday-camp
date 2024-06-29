@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface LocationRepo extends ListCrudRepository<LocationEntity, Long> {
     @Query(
-            value = "SELECT l.id AS locations_id, l.name AS locations_name FROM locations l",
+            value = "SELECT l.id AS locations_id, l.name AS locations_name FROM locations l ORDER BY l.name",
             rowMapperClass = LocationWithoutUsersRowMapper.class
     )
     List<LocationWithoutUsersEntity> findAllWithoutUsers();

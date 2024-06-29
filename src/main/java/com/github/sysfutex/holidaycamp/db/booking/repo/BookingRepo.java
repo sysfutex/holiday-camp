@@ -36,6 +36,7 @@ public interface BookingRepo extends ListCrudRepository<BookingEntity, Long> {
             FROM bookings b
             JOIN users u ON b.user_id = u.id
             JOIN locations l ON u.location_id = l.id
+            ORDER BY b.arrival_timestamp
             """, rowMapperClass = BookingWithUserRowMapper.class)
     List<BookingWithUserEntity> findAllWithUser();
 
@@ -63,6 +64,7 @@ public interface BookingRepo extends ListCrudRepository<BookingEntity, Long> {
             JOIN users u ON b.user_id = u.id
             JOIN locations l ON u.location_id = l.id
             WHERE u.phone_number = :phoneNumber
+            ORDER BY b.arrival_timestamp
             """, rowMapperClass = BookingWithUserRowMapper.class)
     List<BookingWithUserEntity> findAllWithUserByUserPhoneNumber(@Param("phoneNumber") String phoneNumber);
 
@@ -90,6 +92,7 @@ public interface BookingRepo extends ListCrudRepository<BookingEntity, Long> {
             JOIN users u ON b.user_id = u.id
             JOIN locations l ON u.location_id = l.id
             WHERE b.arrival_timestamp BETWEEN :from AND :to
+            ORDER BY b.arrival_timestamp
             """, rowMapperClass = BookingWithUserRowMapper.class)
     List<BookingWithUserEntity> findAllWithUserByArrivalDate(@Param("from") LocalDateTime from, @Param("to") LocalDateTime to);
 }
