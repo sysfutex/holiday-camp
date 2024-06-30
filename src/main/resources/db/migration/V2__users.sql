@@ -63,7 +63,7 @@ BEGIN
                 RAISE EXCEPTION 'Роль с названием % не существует', new_user_role_name;
             END IF;
 
-            INSERT INTO users_roles (user_id, role_id) VALUES (new_user_id, role_id);
+            INSERT INTO users_roles (user_id, role_id) VALUES (new_user_id, new_user_role_id);
             RAISE NOTICE 'Роль % (%) добавлена для нового пользователя', new_user_role_name, new_user_role_id;
         END LOOP;
     RAISE NOTICE 'Все роли успешно добавлены для нового пользователя';
