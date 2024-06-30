@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface BookingService {
     List<BookingWithUserModel> getAllWithUser();
+
     List<BookingWithUserModel> getAllWithUserByUserPhoneNumber(String phoneNumber);
+
     List<BookingWithUserModel> getAllWithUserByArrivalDate(LocalDateTime from, LocalDateTime to);
 }

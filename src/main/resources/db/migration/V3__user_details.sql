@@ -21,7 +21,8 @@ COMMENT ON COLUMN user_details.is_account_non_locked IS 'Заблокирова�
 COMMENT ON COLUMN user_details.is_credentials_non_expired IS 'Истек ли срок действия пароля';
 COMMENT ON COLUMN user_details.is_enabled IS 'Включена ли учетная запись';
 
+-- Password: "password"
 INSERT INTO user_details (user_id, username, password_hash)
 VALUES (get_user_id('+7-996-380-03-61'),
         '+7-996-380-03-61',
-        ' $2a$10$OMU0o3vpODWWWv6ArFSUL.J3uCQS4u3BH6ur7FZdwk/K0YZwO8sYm ');
+        '$2a$10$VffPR/KA610DUI.YgRuHDeeMVov8cmIg9x/zIJjQ/IrudGWQSZ4tC');
