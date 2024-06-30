@@ -35,7 +35,7 @@ public interface BookingRepo extends ListCrudRepository<BookingEntity, Long> {
                    l.name AS locations_name
             FROM bookings b
             JOIN users u ON b.user_id = u.id
-            JOIN locations l ON u.location_id = l.id
+            LEFT JOIN locations l ON u.location_id = l.id
             ORDER BY b.arrival_timestamp
             """, rowMapperClass = BookingWithUserRowMapper.class)
     List<BookingWithUserEntity> findAllWithUser();
@@ -62,7 +62,7 @@ public interface BookingRepo extends ListCrudRepository<BookingEntity, Long> {
                    l.name AS locations_name
             FROM bookings b
             JOIN users u ON b.user_id = u.id
-            JOIN locations l ON u.location_id = l.id
+            LEFT JOIN locations l ON u.location_id = l.id
             WHERE u.phone_number = :phoneNumber
             ORDER BY b.arrival_timestamp
             """, rowMapperClass = BookingWithUserRowMapper.class)
@@ -90,7 +90,7 @@ public interface BookingRepo extends ListCrudRepository<BookingEntity, Long> {
                    l.name AS locations_name
             FROM bookings b
             JOIN users u ON b.user_id = u.id
-            JOIN locations l ON u.location_id = l.id
+            LEFT JOIN locations l ON u.location_id = l.id
             WHERE b.arrival_timestamp BETWEEN :from AND :to
             ORDER BY b.arrival_timestamp
             """, rowMapperClass = BookingWithUserRowMapper.class)
