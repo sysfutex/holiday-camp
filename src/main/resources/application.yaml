@@ -3,7 +3,7 @@ spring:
     name: holiday-camp
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/holiday_camp
+    url: jdbc:postgresql://localhost:5432/holiday_camp?escapeSyntaxCallMode=callIfNoReturn
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
