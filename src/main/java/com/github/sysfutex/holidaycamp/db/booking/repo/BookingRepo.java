@@ -3,6 +3,7 @@ package com.github.sysfutex.holidaycamp.db.booking.repo;
 import com.github.sysfutex.holidaycamp.db.booking.entity.BookingEntity;
 import com.github.sysfutex.holidaycamp.db.booking.entity.BookingWithUserEntity;
 import com.github.sysfutex.holidaycamp.db.booking.entity.mapper.BookingWithUserRowMapper;
+import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -95,4 +96,36 @@ public interface BookingRepo extends ListCrudRepository<BookingEntity, Long> {
             ORDER BY b.arrival_timestamp
             """, rowMapperClass = BookingWithUserRowMapper.class)
     List<BookingWithUserEntity> findAllWithUserByArrivalDate(@Param("from") LocalDateTime from, @Param("to") LocalDateTime to);
+
+    @Modifying
+    @Query("""
+            UPDATE bookings
+            SET is_canceled = TRUE
+            WHERE id = :id
+            """)
+    void setIsCanceled(@Param("id") Long id);
+
+    @Modifying
+    @Query("""
+            UPDATE bookings
+            SET is_confirmed = TRUE
+            WHERE id = :id
+            """)
+    void setIsConfirmed(@Param("id") Long id);
+
+    @Modifying
+    @Query("""
+            UPDATE bookings
+            SET is_arrived = TRUE
+            WHERE id = :id
+            """)
+    void setIsArrived(@Param("id") Long id);
+
+    @Modifying
+    @Query("""
+            UPDATE bookings
+            SET is_departed = TRUE
+            WHERE id = :id
+            """)
+    void setIsDeparted(@Param("id") Long id);
 }
