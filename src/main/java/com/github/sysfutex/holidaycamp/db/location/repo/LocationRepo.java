@@ -1,8 +1,8 @@
 package com.github.sysfutex.holidaycamp.db.location.repo;
 
 import com.github.sysfutex.holidaycamp.db.location.entity.LocationEntity;
-import com.github.sysfutex.holidaycamp.db.location.entity.custom.LocationWithoutUsersEntity;
-import com.github.sysfutex.holidaycamp.db.location.entity.custom.mapper.LocationWithoutUsersRowMapper;
+import com.github.sysfutex.holidaycamp.db.location.entity.LocationWithoutUsersEntity;
+import com.github.sysfutex.holidaycamp.db.location.entity.mapper.LocationWithoutUsersRowMapper;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;

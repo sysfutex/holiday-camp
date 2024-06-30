@@ -1,12 +1,12 @@
-package com.github.sysfutex.holidaycamp.db.booking.entity.custom;
+package com.github.sysfutex.holidaycamp.core.booking.model;
 
-import com.github.sysfutex.holidaycamp.db.user.entity.custom.UserWithLocationEntity;
+import com.github.sysfutex.holidaycamp.core.user.model.UserWithLocationModel;
 import lombok.Builder;
 
 import java.time.LocalDateTime;
 
 @Builder
-public record BookingWithUserEntity(
+public record BookingWithUserModel(
         Long id,
 
         LocalDateTime createdAt,
@@ -25,6 +25,6 @@ public record BookingWithUserEntity(
         Boolean isCanceled,
         LocalDateTime canceledAt,
 
-        UserWithLocationEntity user
+        UserWithLocationModel user
 ) {
 }

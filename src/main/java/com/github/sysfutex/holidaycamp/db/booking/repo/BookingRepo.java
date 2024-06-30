@@ -1,8 +1,8 @@
 package com.github.sysfutex.holidaycamp.db.booking.repo;
 
 import com.github.sysfutex.holidaycamp.db.booking.entity.BookingEntity;
-import com.github.sysfutex.holidaycamp.db.booking.entity.custom.BookingWithUserEntity;
-import com.github.sysfutex.holidaycamp.db.booking.entity.custom.mapper.BookingWithUserRowMapper;
+import com.github.sysfutex.holidaycamp.db.booking.entity.BookingWithUserEntity;
+import com.github.sysfutex.holidaycamp.db.booking.entity.mapper.BookingWithUserRowMapper;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.data.repository.query.Param;

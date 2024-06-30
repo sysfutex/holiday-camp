@@ -1,6 +1,6 @@
-package com.github.sysfutex.holidaycamp.db.location.entity.custom.mapper;
+package com.github.sysfutex.holidaycamp.db.location.entity.mapper;
 
-import com.github.sysfutex.holidaycamp.db.location.entity.custom.LocationWithoutUsersEntity;
+import com.github.sysfutex.holidaycamp.db.location.entity.LocationWithoutUsersEntity;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

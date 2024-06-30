@@ -1,6 +1,6 @@
-package com.github.sysfutex.holidaycamp.db.user.entity.custom;
+package com.github.sysfutex.holidaycamp.db.user.entity;
 
-import com.github.sysfutex.holidaycamp.db.location.entity.custom.LocationWithoutUsersEntity;
+import com.github.sysfutex.holidaycamp.db.location.entity.LocationWithoutUsersEntity;
 import lombok.Builder;
 
 @Builder
