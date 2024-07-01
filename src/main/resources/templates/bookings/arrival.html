@@ -3,7 +3,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Бронирование по дате прибытия</title>
+    <title>Бронирования по дате прибытия</title>
 </head>
 
 <body>
@@ -18,6 +18,7 @@
         <th>Дата подтверждения</th>
         <th>Дата отмены</th>
         <th>Информация о туристе</th>
+        <th>Действия</th>
     </tr>
     </thead>
 
@@ -53,6 +54,13 @@
             <span th:text="'Имя: ' + ${booking.user().name()}"/> <br>
             <span th:text="'Телефон: ' + ${booking.user().phoneNumber()}"/> <br>
             <span th:text="'Откуда: ' + ${booking.user().location().name()} + ' (' + ${booking.user().location().id()} + ')'"/>
+        </td>
+
+        <td>
+            <a title="Подтвердить бронирование">&#10004;</a>
+            <a title="Отменить бронирование">&#10008;</a>
+            <a title="Турист прибыл">&#10551;</a>
+            <a title="Турист уехал">&#10550;</a>
         </td>
     </tr>
     </tbody>
