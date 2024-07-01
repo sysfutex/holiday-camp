@@ -13,7 +13,7 @@ public interface BookingService {
 
     List<BookingWithUserModel> getAllWithUserByArrivalDate(LocalDateTime from, LocalDateTime to);
 
-    void create(String phoneNumber, LocalDateTime arrivalTimestamp, LocalDateTime departureTimestamp) throws UserNotFoundException;
+    void create(String phoneNumber, Integer numberOfPeople, LocalDateTime arrivalTimestamp, LocalDateTime departureTimestamp) throws UserNotFoundException;
 
     void cancel(Long bookingId);
 

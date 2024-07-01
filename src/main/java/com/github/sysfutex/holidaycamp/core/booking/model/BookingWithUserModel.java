@@ -9,6 +9,8 @@ import java.time.LocalDateTime;
 public record BookingWithUserModel(
         Long id,
 
+        Integer numberOfPeople,
+
         LocalDateTime createdAt,
 
         LocalDateTime arrivalTimestamp,

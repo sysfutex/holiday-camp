@@ -4,20 +4,22 @@ CREATE TABLE IF NOT EXISTS bookings
 
     user_id             BIGINT REFERENCES users (id) ON DELETE SET NULL ON UPDATE CASCADE,
 
-    created_at          TIMESTAMP DEFAULT NOW() NOT NULL,
+    number_of_people    INTEGER CHECK (number_of_people > 0) NOT NULL,
 
-    arrival_timestamp   TIMESTAMP               NOT NULL,
-    is_arrived          BOOLEAN   DEFAULT FALSE NOT NULL,
+    created_at          TIMESTAMP DEFAULT NOW()              NOT NULL,
+
+    arrival_timestamp   TIMESTAMP                            NOT NULL,
+    is_arrived          BOOLEAN   DEFAULT FALSE              NOT NULL,
     arrived_at          TIMESTAMP DEFAULT NULL,
 
-    departure_timestamp TIMESTAMP               NOT NULL,
-    is_departed         BOOLEAN   DEFAULT FALSE NOT NULL,
+    departure_timestamp TIMESTAMP                            NOT NULL,
+    is_departed         BOOLEAN   DEFAULT FALSE              NOT NULL,
     departed_at         TIMESTAMP DEFAULT NULL,
 
-    is_confirmed        BOOLEAN   DEFAULT FALSE NOT NULL,
+    is_confirmed        BOOLEAN   DEFAULT FALSE              NOT NULL,
     confirmed_at        TIMESTAMP DEFAULT NULL,
 
-    is_canceled         BOOLEAN   DEFAULT FALSE NOT NULL,
+    is_canceled         BOOLEAN   DEFAULT FALSE              NOT NULL,
     canceled_at         TIMESTAMP DEFAULT NULL,
 
     CONSTRAINT booking_timestamps CHECK (arrival_timestamp <= departure_timestamp)
@@ -27,6 +29,7 @@ COMMENT ON table bookings IS 'Бронирования';
 
 COMMENT ON COLUMN bookings.id IS 'ID';
 COMMENT ON COLUMN bookings.user_id IS 'ID пользователя';
+COMMENT ON COLUMN bookings.number_of_people IS 'Количество людей';
 COMMENT ON COLUMN bookings.created_at IS 'Дата и время создания бронирования';
 COMMENT ON COLUMN bookings.arrival_timestamp IS 'Дата и время прибытия туриста';
 COMMENT ON COLUMN bookings.is_arrived IS 'Прибыл ли турист';

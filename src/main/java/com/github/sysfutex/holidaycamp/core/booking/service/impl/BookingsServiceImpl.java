@@ -40,7 +40,7 @@ public class BookingsServiceImpl implements BookingService {
     }
 
     @Override
-    public void create(String phoneNumber, LocalDateTime arrivalTimestamp, LocalDateTime departureTimestamp) throws UserNotFoundException {
+    public void create(String phoneNumber, Integer numberOfPeople, LocalDateTime arrivalTimestamp, LocalDateTime departureTimestamp) throws UserNotFoundException {
         Optional<UserWithLocationModel> user = userService.getWithLocationByPhoneNumber(phoneNumber);
         if (user.isEmpty()) {
             throw new UserNotFoundException("Пользователь с номером телефона " + phoneNumber + " не найден");
@@ -48,6 +48,7 @@ public class BookingsServiceImpl implements BookingService {
 
         bookingRepo.save(BookingEntity.builder()
                 .userRef(AggregateReference.to(user.get().id()))
+                .numberOfPeople(numberOfPeople)
                 .createdAt(LocalDateTime.now())
                 .arrivalTimestamp(arrivalTimestamp)
                 .isArrived(false)

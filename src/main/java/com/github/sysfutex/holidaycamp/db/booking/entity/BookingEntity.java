@@ -16,6 +16,8 @@ public record BookingEntity(
 
         @Column("user_id") AggregateReference<UserEntity, Long> userRef,
 
+        @Column("number_of_people") Integer numberOfPeople,
+
         @Column("created_at") LocalDateTime createdAt,
 
         @Column("arrival_timestamp") LocalDateTime arrivalTimestamp,

@@ -17,6 +17,7 @@ public interface BookingRepo extends ListCrudRepository<BookingEntity, Long> {
     @Query(value = """
             SELECT b.id AS bookings_id,
                    b.user_id AS bookings_user_id,
+                   b.number_of_people AS bookings_number_of_people,
                    b.created_at AS bookings_created_at,
                    b.arrival_timestamp AS bookings_arrival_timestamp,
                    b.is_arrived AS bookings_is_arrived,
@@ -44,6 +45,7 @@ public interface BookingRepo extends ListCrudRepository<BookingEntity, Long> {
     @Query(value = """
             SELECT b.id AS bookings_id,
                    b.user_id AS bookings_user_id,
+                   b.number_of_people AS bookings_number_of_people,
                    b.created_at AS bookings_created_at,
                    b.arrival_timestamp AS bookings_arrival_timestamp,
                    b.is_arrived AS bookings_is_arrived,
@@ -72,6 +74,7 @@ public interface BookingRepo extends ListCrudRepository<BookingEntity, Long> {
     @Query(value = """
             SELECT b.id AS bookings_id,
                    b.user_id AS bookings_user_id,
+                   b.number_of_people AS bookings_number_of_people,
                    b.created_at AS bookings_created_at,
                    b.arrival_timestamp AS bookings_arrival_timestamp,
                    b.is_arrived AS bookings_is_arrived,

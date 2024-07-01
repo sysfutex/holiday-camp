@@ -13,6 +13,7 @@ public class BookingWithUserRowMapper implements RowMapper<BookingWithUserEntity
     @Override
     public BookingWithUserEntity mapRow(ResultSet rs, int rowNum) throws SQLException {
         Long id = rs.getLong("bookings_id");
+        Integer numberOfPeople = rs.getInt("bookings_number_of_people");
         Timestamp createdAt = rs.getTimestamp("bookings_created_at");
         Timestamp arrivalTimestamp = rs.getTimestamp("bookings_arrival_timestamp");
         Boolean isArrived = rs.getBoolean("bookings_is_arrived");
@@ -27,6 +28,7 @@ public class BookingWithUserRowMapper implements RowMapper<BookingWithUserEntity
 
         return BookingWithUserEntity.builder()
                 .id(id)
+                .numberOfPeople(numberOfPeople)
                 .createdAt(createdAt.toLocalDateTime())
                 .arrivalTimestamp(arrivalTimestamp.toLocalDateTime())
                 .isArrived(isArrived)
