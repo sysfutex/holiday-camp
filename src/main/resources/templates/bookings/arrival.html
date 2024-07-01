@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все бронирования</title>
+</head>
+
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Номер бронирования</th>
+        <th>Количество людей</th>
+        <th>Бронирование создано</th>
+        <th>Дата прибытия</th>
+        <th>Дата отъезда</th>
+        <th>Дата подтверждения</th>
+        <th>Дата отмены</th>
+        <th>Информация о туристе</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="booking: ${bookings}">
+        <td th:text="${booking.id()}"/>
+        <td th:text="${booking.numberOfPeople()}"/>
+        <td th:text="${booking.createdAt().format(formatter)}"/>
+        <td>
+            <span th:text="${booking.arrivalTimestamp().format(formatter)}"/>
+
+            <span th:if="${booking.isArrived()}" th:text="' (прибыл: ' + ${booking.arrivedAt().format(formatter)} + ')'"/>
+            <span th:if="${!booking.isArrived()}" th:text="' (не прибыл)'"/>
+        </td>
+        <td>
+            <span th:text="${booking.departureTimestamp().format(formatter)}"/>
+
+            <span th:if="${booking.isDeparted()}" th:text="' (уехал: ' + ${booking.departedAt().format(formatter)} + ')'"/>
+            <span th:if="${!booking.isDeparted()}" th:text="' (не уехал)'"/>
+        </td>
+        <td>
+            <span th:if="${booking.isConfirmed()}" th:text="${booking.confirmedAt().format(formatter)}"/>
+            <span th:if="${!booking.isConfirmed()}" th:text="'Бронирование не подтверждено'"/>
+        </td>
+        <td>
+            <span th:if="${booking.isCanceled()}" th:text="${booking.canceledAt().format(formatter)}"/>
+            <span th:if="${!booking.isCanceled()}" th:text="'Бронирование не отменено'"/>
+        </td>
+        <td>
+            <span th:text="'Идентификатор: ' + ${booking.user().id()}"/> <br>
+            <span th:text="'Имя: ' + ${booking.user().name()}"/> <br>
+            <span th:text="'Телефон: ' + ${booking.user().phoneNumber()}"/> <br>
+            <span th:text="'Откуда: ' + ${booking.user().location().name()} + ' (' + ${booking.user().location().id()} + ')'"/>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
