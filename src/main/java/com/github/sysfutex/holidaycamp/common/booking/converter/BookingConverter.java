@@ -1,7 +1,7 @@
-package com.github.sysfutex.holidaycamp.core.booking.model.converter;
+package com.github.sysfutex.holidaycamp.common.booking.converter;
 
 import com.github.sysfutex.holidaycamp.core.booking.model.BookingWithUserModel;
-import com.github.sysfutex.holidaycamp.core.user.model.converter.UserConverter;
+import com.github.sysfutex.holidaycamp.common.user.converter.UserConverter;
 import com.github.sysfutex.holidaycamp.db.booking.entity.BookingWithUserEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;

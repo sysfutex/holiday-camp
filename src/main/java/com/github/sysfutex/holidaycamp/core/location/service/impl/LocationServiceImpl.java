@@ -1,7 +1,7 @@
 package com.github.sysfutex.holidaycamp.core.location.service.impl;
 
 import com.github.sysfutex.holidaycamp.core.location.model.LocationWithoutUsersModel;
-import com.github.sysfutex.holidaycamp.core.location.model.converter.LocationConverter;
+import com.github.sysfutex.holidaycamp.common.location.converter.LocationConverter;
 import com.github.sysfutex.holidaycamp.core.location.service.LocationService;
 import com.github.sysfutex.holidaycamp.db.location.repo.LocationRepo;
 import lombok.AllArgsConstructor;

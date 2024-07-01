@@ -1,4 +1,4 @@
-package com.github.sysfutex.holidaycamp.core.location.model.converter;
+package com.github.sysfutex.holidaycamp.common.location.converter;
 
 import com.github.sysfutex.holidaycamp.core.location.model.LocationWithoutUsersModel;
 import com.github.sysfutex.holidaycamp.db.location.entity.LocationWithoutUsersEntity;

@@ -1,7 +1,7 @@
 package com.github.sysfutex.holidaycamp.core.user.service.impl;
 
 import com.github.sysfutex.holidaycamp.core.user.model.UserWithLocationModel;
-import com.github.sysfutex.holidaycamp.core.user.model.converter.UserConverter;
+import com.github.sysfutex.holidaycamp.common.user.converter.UserConverter;
 import com.github.sysfutex.holidaycamp.core.user.service.UserService;
 import com.github.sysfutex.holidaycamp.db.user.entity.UserWithLocationEntity;
 import com.github.sysfutex.holidaycamp.db.user.repo.UserRepo;

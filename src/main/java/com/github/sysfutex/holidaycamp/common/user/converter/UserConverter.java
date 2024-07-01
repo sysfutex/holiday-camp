@@ -1,6 +1,6 @@
-package com.github.sysfutex.holidaycamp.core.user.model.converter;
+package com.github.sysfutex.holidaycamp.common.user.converter;
 
-import com.github.sysfutex.holidaycamp.core.location.model.converter.LocationConverter;
+import com.github.sysfutex.holidaycamp.common.location.converter.LocationConverter;
 import com.github.sysfutex.holidaycamp.core.user.model.UserWithLocationModel;
 import com.github.sysfutex.holidaycamp.db.user.entity.UserWithLocationEntity;
 import org.mapstruct.Mapper;

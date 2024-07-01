@@ -1,6 +1,6 @@
 package com.github.sysfutex.holidaycamp.core.security.config;
 
-import com.github.sysfutex.holidaycamp.core.user.model.converter.UserDetailConverter;
+import com.github.sysfutex.holidaycamp.common.user.converter.UserDetailConverter;
 import com.github.sysfutex.holidaycamp.core.user.service.impl.UserDetailServiceImpl;
 import com.github.sysfutex.holidaycamp.db.user.repo.UserDetailRepo;
 import lombok.AllArgsConstructor;

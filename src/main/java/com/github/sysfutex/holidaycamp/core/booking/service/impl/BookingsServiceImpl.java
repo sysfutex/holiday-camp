@@ -2,7 +2,7 @@ package com.github.sysfutex.holidaycamp.core.booking.service.impl;
 
 import com.github.sysfutex.holidaycamp.core.booking.exception.UserNotFoundException;
 import com.github.sysfutex.holidaycamp.core.booking.model.BookingWithUserModel;
-import com.github.sysfutex.holidaycamp.core.booking.model.converter.BookingConverter;
+import com.github.sysfutex.holidaycamp.common.booking.converter.BookingConverter;
 import com.github.sysfutex.holidaycamp.core.booking.service.BookingService;
 import com.github.sysfutex.holidaycamp.core.user.model.UserWithLocationModel;
 import com.github.sysfutex.holidaycamp.core.user.service.UserService;
